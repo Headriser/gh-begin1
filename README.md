@@ -1,1 +1,1 @@
-# gh-begin1
+Discord bot on Ruby by Chat-GPT
