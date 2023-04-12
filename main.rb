@@ -3,8 +3,6 @@ require 'telegram/bot'
 TOKEN = ''
 //тут в кавычках вводится токен/
 
-Z = 1000
-GHOUL = Array.new
 
 OTVETIXD = ['доволен?',
 'вот такой анекдот получился',
@@ -68,26 +66,6 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
               .new(keyboard: [%w(!штирлиц !пупа), %w(!рандомный 1000-7), %w(photo video)], one_time_keyboard: true)
       bot.api.send_message(chat_id: message.chat.id, text: question, reply_markup: answers)
 
-    when '1000-7'
-      while Z > -2
-        GHOUL.push(Z)
-        Z = Z - 7
-      end
-      bot.api.send_message(
-          chat_id: message.chat.id,
-        text: GHOUL)
-      question = "доволен?"
-      answers =
-          Telegram::Bot::Types::ReplyKeyboardMarkup
-              .new(keyboard: [%w(!штирлиц !пупа), %w(!рандомный 1000-7), %w(photo video)], one_time_keyboard: true)
-      bot.api.send_message(chat_id: message.chat.id, text: question, reply_markup: answers)
-
-      when '!xdd'
-      loop do
-      bot.api.send_message(
-          chat_id: message.chat.id,
-          text: "hui!")
-      end
 
     when 'photo'
       bot.api.send_photo(chat_id: message.chat.id,
