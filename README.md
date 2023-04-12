@@ -1,1 +1,1 @@
-Telegram bot on Ruby by Chat-GPT
+Telegram bot on Ruby
