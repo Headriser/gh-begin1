@@ -65,6 +65,16 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
           Telegram::Bot::Types::ReplyKeyboardMarkup
               .new(keyboard: [%w(!штирлиц !пупа), %w(!рандомный 1000-7), %w(photo video)], one_time_keyboard: true)
       bot.api.send_message(chat_id: message.chat.id, text: question, reply_markup: answers)
+	  
+	   when 'photo'
+      bot.api.send_photo(chat_id: message.chat.id,
+         photo: Faraday::UploadIO.new(PHOT.sample, 'image/jpeg')
+      )
+      question = "скинул фоточку"
+      answers =
+          Telegram::Bot::Types::ReplyKeyboardMarkup
+              .new(keyboard: [%w(!штирлиц !пупа), %w(!рандомный 1000-7), %w(photo video)], one_time_keyboard: true)
+      bot.api.send_message(chat_id: message.chat.id, text: question, reply_markup: answers)
 
 
     when '/start'
